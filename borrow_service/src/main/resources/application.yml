@@ -15,6 +15,10 @@ spring:
     loadbalancer:
       nacos:
         enabled: true
+    sentinel:
+      transport:
+        # 添加监控页面地址即可
+        dashboard: localhost:8858
 
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
