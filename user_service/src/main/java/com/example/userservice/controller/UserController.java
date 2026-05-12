@@ -18,8 +18,7 @@ public class UserController {
 
     @Autowired
     private UserMapper userMapper;
-    @Value("${pattern.dateformat}")
-    private String dateformat;
+
 
     @GetMapping("/{uid}")
     public User findUserById(@PathVariable("uid") Integer uid) {
@@ -27,10 +26,7 @@ public class UserController {
         return userMapper.findUserByUid(uid);
     }
 
-    @GetMapping("/now")
-    public String now() {
-        return LocalDateTime.now().format(DateTimeFormatter.ofPattern(dateformat));
-    }
+
 
 
 
