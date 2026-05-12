@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.bookservice.mapper.BookMapper">
+
+    <resultMap id="BookResultMap" type="com.example.common.entity.Book">
+        <id property="bid" column="bid"/>
+        <result property="title" column="title"/>
+        <result property="desc" column="book_desc"/>
+    </resultMap>
+
+    <select id="findBookById" resultMap="BookResultMap" parameterType="int">
+        SELECT bid, title, `desc` AS book_desc
+        FROM DB_BOOK
+        WHERE bid = #{bid}
+    </select>
+</mapper>
+
+
