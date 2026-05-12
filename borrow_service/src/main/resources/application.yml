@@ -10,6 +10,11 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
+        ephemeral: false
+        cluster-name: Chengd
+    loadbalancer:
+      nacos:
+        enabled: true
 
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
