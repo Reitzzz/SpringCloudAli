@@ -1,5 +1,6 @@
 package com.example.borrowservice.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.borrowservice.service.BorrowService;
 import com.example.common.dto.UserBorrowDetail;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,14 @@ public class BorrowController {
     @GetMapping("/{uid}")
     public UserBorrowDetail getBorrowByUid(@PathVariable("uid") Integer uid) {
         return borrowService.getUserBorrowDetailByUid(uid);
+    }
+    @RequestMapping("/blocked")
+    JSONObject blocked(){
+        JSONObject object = new JSONObject();
+        object.put("code", 403);
+        object.put("success", false);
+        object.put("massage", "您的请求频率过快，请稍后再试！");
+        return object;
     }
 }
 
