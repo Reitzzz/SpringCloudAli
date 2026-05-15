@@ -13,5 +13,17 @@
         FROM DB_BORROW
         WHERE uid = #{uid}
     </select>
+
+    <select id="getBorrow" resultMap="BorrowResultMap">
+        SELECT id, uid, bid
+        FROM DB_BORROW
+        WHERE uid = #{uid}
+          AND bid = #{bid}
+    </select>
+
+    <insert id="addBorrow">
+        INSERT INTO DB_BORROW(uid, bid)
+        VALUES(#{uid}, #{bid})
+    </insert>
 </mapper>
 

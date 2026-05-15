@@ -6,10 +6,11 @@
         <id property="bid" column="bid"/>
         <result property="title" column="title"/>
         <result property="desc" column="book_desc"/>
+        <result property="count" column="count"/>
     </resultMap>
 
     <select id="findBookById" resultMap="BookResultMap" parameterType="int">
-        SELECT bid, title, `desc` AS book_desc
+        SELECT bid, title, `desc` AS book_desc, count
         FROM DB_BOOK
         WHERE bid = #{bid}
     </select>

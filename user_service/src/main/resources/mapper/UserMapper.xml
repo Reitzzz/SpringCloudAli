@@ -6,10 +6,11 @@
         <id property="uid" column="uid"/>
         <result property="name" column="name"/>
         <result property="sex" column="sex"/>
+        <result property="bookCount" column="book_count"/>
     </resultMap>
 
     <select id="findUserByUid" resultMap="UserResultMap" parameterType="int">
-        SELECT uid, name, sex
+        SELECT uid, name, sex, book_count
         FROM DB_USER
         WHERE uid = #{uid}
     </select>

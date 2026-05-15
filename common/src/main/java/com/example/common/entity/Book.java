@@ -4,6 +4,7 @@ public class Book {
     private Integer bid;
     private String title;
     private String desc;
+    private Integer count;
 
     public Book() {
     }
@@ -12,6 +13,13 @@ public class Book {
         this.bid = bid;
         this.title = title;
         this.desc = desc;
+    }
+
+    public Book(Integer bid, String title, String desc, Integer count) {
+        this.bid = bid;
+        this.title = title;
+        this.desc = desc;
+        this.count = count;
     }
 
     public Integer getBid() {
@@ -36,6 +44,14 @@ public class Book {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
     }
 }
 

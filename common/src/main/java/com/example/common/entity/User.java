@@ -4,6 +4,7 @@ public class User {
     private Integer uid;
     private String name;
     private String sex;
+    private Integer bookCount;
 
     public User() {
     }
@@ -12,6 +13,13 @@ public class User {
         this.uid = uid;
         this.name = name;
         this.sex = sex;
+    }
+
+    public User(Integer uid, String name, String sex, Integer bookCount) {
+        this.uid = uid;
+        this.name = name;
+        this.sex = sex;
+        this.bookCount = bookCount;
     }
 
     public Integer getUid() {
@@ -36,6 +44,14 @@ public class User {
 
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+    public Integer getBookCount() {
+        return bookCount;
+    }
+
+    public void setBookCount(Integer bookCount) {
+        this.bookCount = bookCount;
     }
 }
 

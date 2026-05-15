@@ -18,12 +18,25 @@ public class BorrowController {
     public UserBorrowDetail getBorrowByUid(@PathVariable("uid") Integer uid) {
         return borrowService.getUserBorrowDetailByUid(uid);
     }
+
+    @GetMapping("/take/{uid}/{bid}")
+    public JSONObject borrow(@PathVariable("uid") Integer uid,
+                             @PathVariable("bid") Integer bid) {
+        borrowService.doBorrow(uid, bid);
+
+        JSONObject object = new JSONObject();
+        object.put("code", "200");
+        object.put("success", true);
+        object.put("message", "借阅成功！");
+        return object;
+    }
+
     @RequestMapping("/blocked")
     JSONObject blocked(){
         JSONObject object = new JSONObject();
         object.put("code", 403);
         object.put("success", false);
-        object.put("massage", "您的请求频率过快，请稍后再试！");
+        object.put("message", "您的请求频率过快，请稍后再试！");
         return object;
     }
 

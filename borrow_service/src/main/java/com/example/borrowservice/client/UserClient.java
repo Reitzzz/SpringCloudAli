@@ -10,5 +10,11 @@ public interface UserClient {
 
     @GetMapping("/user/{uid}")
     User getUserById(@PathVariable("uid") Integer uid);
+
+    @GetMapping("/user/borrow/{uid}")
+    boolean userBorrow(@PathVariable("uid") Integer uid);
+
+    @GetMapping("/user/remain/{uid}")
+    int userRemain(@PathVariable("uid") Integer uid);
 }
 

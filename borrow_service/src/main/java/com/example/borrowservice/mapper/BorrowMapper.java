@@ -9,5 +9,9 @@ import java.util.List;
 @Mapper
 public interface BorrowMapper {
     List<Borrow> getBorrowsByUid(@Param("uid") Integer uid);
+
+    Borrow getBorrow(@Param("uid") Integer uid, @Param("bid") Integer bid);
+
+    int addBorrow(@Param("uid") Integer uid, @Param("bid") Integer bid);
 }
 

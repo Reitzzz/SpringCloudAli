@@ -40,7 +40,33 @@ public class BorrowServiceImpl implements BorrowService {
         return new UserBorrowDetail(user, books);
     }
 
-    public UserBorrowDetail blocked(int uid, BlockException e) {
+    @Override
+    public boolean doBorrow(Integer uid, Integer bid) {
+        if (bookClient.bookRemain(bid) < 1) {
+            throw new RuntimeException("图书数量不足");
+        }
+        if (userClient.userRemain(uid) < 1) {
+            throw new RuntimeException("用户借阅量不足");
+        }
+
+        if (!bookClient.bookBorrow(bid)) {
+            throw new RuntimeException("在借阅图书时出现错误！");
+        }
+
+        if (borrowMapper.getBorrow(uid, bid) != null) {
+            throw new RuntimeException("此书籍已经被此用户借阅了！");
+        }
+        if (borrowMapper.addBorrow(uid, bid) <= 0) {
+            throw new RuntimeException("在录入借阅信息时出现错误！");
+        }
+
+        if (!userClient.userBorrow(uid)) {
+            throw new RuntimeException("在借阅时出现错误！");
+        }
+        return true;
+    }
+
+    public UserBorrowDetail blocked(Integer uid, BlockException e) {
         return new UserBorrowDetail(null, Collections.emptyList());
     }
 }
