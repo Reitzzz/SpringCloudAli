@@ -1,6 +1,14 @@
+server:
+  port: 8101
+
 spring:
   application:
     name: bookservice
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8500/sso/oauth2/jwks
   datasource:
     url: jdbc:mysql://localhost:3306/cloudstudy?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
     username: root
