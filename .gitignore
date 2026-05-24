@@ -1,0 +1,63 @@
+### Maven / Java build output ###
+target/
+**/target/
+build/
+**/build/
+out/
+*.class
+
+### Maven Wrapper ###
+.mvn/wrapper/maven-wrapper.jar
+
+### Logs and runtime files ###
+*.log
+logs/
+**/logs/
+*.pid
+*.hprof
+hs_err_pid*
+replay_pid*
+
+### Local middleware runtimes ###
+nacos-server-*/
+nacos-server-*_B/
+seata/
+Sentinel/
+sessionStore/
+
+### Runtime data ###
+data/
+**/data/
+derby.log
+*.db
+*.lck
+*.sst
+
+### IDE - IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### IDE - Eclipse / STS ###
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+
+### IDE - NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### IDE - VS Code ###
+.vscode/
+
+### OS files ###
+.DS_Store
+Thumbs.db
